@@ -16,7 +16,7 @@
       firestore.rules (disertakan) ke tab "Rules" di Firestore
 ══════════════════════════════════════════════════════════ */
 
-const firebaseConfig = {
+const FIREBASE_CONFIG = {
   apiKey: "AIzaSyClFbswv2uMhFVNYLxls05K-p9t2uq1Yg0",
   authDomain: "informatikxau-cbe2a.firebaseapp.com",
   databaseURL: "https://informatikxau-cbe2a-default-rtdb.asia-southeast1.firebasedatabase.app",
