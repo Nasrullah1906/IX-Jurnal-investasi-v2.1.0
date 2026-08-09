@@ -1,7 +1,7 @@
 // Jurnal Investasi — Service Worker
 // Naikkan versi ini setiap kali file di daftar bawah berubah,
 // supaya pengguna otomatis mendapat versi baru.
-const CACHE_VERSION = "v2.5.1";
+const CACHE_VERSION = "v2.5.2";
 const CACHE_NAME = "jurnal-investasi-" + CACHE_VERSION;
 
 const APP_SHELL = [
