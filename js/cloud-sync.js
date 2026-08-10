@@ -1,24 +1,24 @@
-/* ══════════════════════════════════════════════════════════
-   JURNAL INVESTASI — cloud-sync.js
-   Menambahkan sinkronisasi otomatis antar perangkat via Firebase
-   (Authentication + Firestore), TANPA mengubah logika app.js.
+// /* ══════════════════════════════════════════════════════════
+//    JURNAL INVESTASI — cloud-sync.js
+//    Menambahkan sinkronisasi otomatis antar perangkat via Firebase
+//    (Authentication + Firestore), TANPA mengubah logika app.js.
 
-   Cara kerja:
-   - Semua fungsi bisnis di app.js tetap membaca/menulis lewat
-     localStorage seperti biasa (getAccounts, getUserData, dst).
-   - File ini "menyadap" localStorage.setItem untuk key-key
-     penting (akun, data transaksi, pengaturan) dan mendorongnya
-     ke Firestore secara otomatis setiap kali berubah.
-   - File ini juga memasang listener real-time Firestore: begitu
-     ada perubahan dari PERANGKAT LAIN, localStorage di perangkat
-     ini diperbarui otomatis dan halaman di-render ulang.
-   - Login/Register/ubah password/hapus akun dialihkan memakai
-     Firebase Authentication (lebih aman dari password base64
-     lokal sebelumnya), tapi validasi & tampilan form TETAP SAMA.
-   - Tetap bisa dipakai offline: Firestore offline persistence
-     aktif, jadi data tersimpan lokal dulu lalu disinkron begitu
-     koneksi kembali.
-══════════════════════════════════════════════════════════ */
+//    Cara kerja:
+//    - Semua fungsi bisnis di app.js tetap membaca/menulis lewat
+//      localStorage seperti biasa (getAccounts, getUserData, dst).
+//    - File ini "menyadap" localStorage.setItem untuk key-key
+//      penting (akun, data transaksi, pengaturan) dan mendorongnya
+//      ke Firestore secara otomatis setiap kali berubah.
+//    - File ini juga memasang listener real-time Firestore: begitu
+//      ada perubahan dari PERANGKAT LAIN, localStorage di perangkat
+//      ini diperbarui otomatis dan halaman di-render ulang.
+//    - Login/Register/ubah password/hapus akun dialihkan memakai
+//      Firebase Authentication (lebih aman dari password base64
+//      lokal sebelumnya), tapi validasi & tampilan form TETAP SAMA.
+//    - Tetap bisa dipakai offline: Firestore offline persistence
+//      aktif, jadi data tersimpan lokal dulu lalu disinkron begitu
+//      koneksi kembali.
+// ══════════════════════════════════════════════════════════ */
 
 (function () {
   if (typeof firebase === "undefined") {
@@ -26,7 +26,7 @@
     return;
   }
 
-  firebase.initializeApp(FIREBASE_CONFIG);
+  firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const db = firebase.firestore();
 
